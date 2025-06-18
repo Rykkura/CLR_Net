@@ -25,11 +25,18 @@
 ### 2, Annotation & Format Prepare
 - Tool used: Labelme
 - You need to annotate the lane markings that appear in the image as follows:
-![image](https://github.com/user-attachments/assets/3706c642-9448-4c2b-97ae-204743e430bf)
+- 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3706c642-9448-4c2b-97ae-204743e430bf" alt="image">
+</p>
+
 - Rule: If there are two lane markings in the middle, annotate by drawing a line right in the center between the two markings, as shown in the image above.
 - Annotate example: Open a directory that contains images → Choose Edit → Create lanestrip. Start draw points along the lane and save with class name you want. I will use “road_lane”
 - After you annotate and save (Ctrl + S, or enable auto save at File – Save Automatically). The annotation file will appear in the same folder in .json.
-![labelme_json_sample](https://github.com/user-attachments/assets/543d524e-627b-424c-b437-139557bf3c07)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/543d524e-627b-424c-b437-139557bf3c07" alt="image">
+</p>
 
 - Now you need to convert the format to a new format called Tusimple to make it more suitable for training.
 - Data format look like this:
@@ -40,7 +47,11 @@
       'h_samples': list. A list of height values corresponding to the 'lanes', which means len(h_samples) == len(lanes[i])
 }
 ```
-![tusimple_json_sample](https://github.com/user-attachments/assets/432344c7-bb51-47d1-b923-c1da25044466)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/432344c7-bb51-47d1-b923-c1da25044466" alt="image">
+</p>
+
 - -2 in lanes means on some h_sample, there is no existing lane marking. The first existing point in the first lane is (498, 290).
 - For simplicity, you can use a script (labelme_to_tusimple.py in the repo) to perform the conversion.
 
